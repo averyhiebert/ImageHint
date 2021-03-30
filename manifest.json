@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Komprenilo",
+  "version": "0.0.1",
+  "description": "A tool for language learners that makes it easy to quickly view image search results for an unknown word.",
+  "icons": {
+    "48": "icons/temp-logo-48.png"
+  },
+  "permissions": ["contextMenus","activeTab","*://www.bing.com/*"],
+  "background":{ "scripts": ["background.js"] },
+  "browser_action":{
+    "default_icon": "icons/temp-logo-48.png",
+    "default_title": "Image Hint",
+    "default_popup": "popup/popup.html",
+    "browser_style": true
+  }
+}
