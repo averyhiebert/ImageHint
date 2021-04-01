@@ -13,5 +13,6 @@
     "default_title": "Image Hint",
     "default_popup": "popup/popup.html",
     "browser_style": true
-  }
+  },
+  "web_accessible_resources":["ui/image_list.html"]
 }
