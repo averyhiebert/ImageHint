@@ -8,11 +8,5 @@
   },
   "permissions": ["contextMenus","activeTab","*://www.bing.com/*"],
   "background":{ "scripts": ["background.js"] },
-  "browser_action":{
-    "default_icon": "icons/temp-logo-48.png",
-    "default_title": "Image Hint",
-    "default_popup": "popup/popup.html",
-    "browser_style": true
-  },
-  "web_accessible_resources":["ui/image_list.html"]
+  "web_accessible_resources":["ui/*"]
 }
