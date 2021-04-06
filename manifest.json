@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "Komprenilo",
+  "name": "ImageHint",
   "version": "0.0.1",
-  "description": "A tool for language learners that makes it easy to quickly view image search results for an unknown word.",
+  "description": "A tool for language learning: right-click to view image search results for an unknown word or phrase.",
   "icons": {
     "48": "icons/temp-logo-48.png"
   },
-  "permissions": ["contextMenus","activeTab","*://www.bing.com/*"],
+  "permissions": ["contextMenus","activeTab","*://images.search.yahoo.com/*"],
   "background":{ "scripts": ["background.js"] },
   "web_accessible_resources":["ui/*"]
 }

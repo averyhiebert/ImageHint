@@ -15,7 +15,7 @@ function main(){
                 {file: "./insert_iframe.js"},
                 function(){
                     browser.tabs.executeScript(tab.id,
-                        {code:`doSearch("${selection_text}",processSearch);`})
+                        {code:`doSearch("${selection_text}",displayResults);`})
                 }
             );
         }

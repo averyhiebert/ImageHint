@@ -4,30 +4,31 @@ function deleteIFrame(){
 
 function doSearch(query,callback){
     // Callback will be called on resulting image search results document.
-    var url = "https://www.bing.com/images/search?q="+encodeURIComponent(query)
+    var url = `https://images.search.yahoo.com/search/images?p=${encodeURIComponent(query)}`
+    console.log(url);
     var xhttp = new XMLHttpRequest();
     xhttp.onload = function(){
-        callback(this.responseXML);
+        callback(query,this.responseXML);
     }
     xhttp.open("GET",url,true);
     xhttp.responseType = "document";
     xhttp.send();
 }
 
+
 function extractImages(doc){
-    // Extract top 3 image urls from document.
+    // Extract all image urls from document.
     var results = []
-    for (ind of ["1","2","3"]){
-        var selector = `li[data-idx="${ind}"] img`
-        results.push(doc.querySelector(selector).src)
-    }
+    doc.querySelectorAll("#results ul > li > a > noscript > img")
+       .forEach(elem => results.push(elem.src));
     return results
 }
 
-function processSearch(doc){
+function displayResults(query, doc){
+    //console.log((new XMLSerializer()).serializeToString(doc))
     results = extractImages(doc)
-    url_args = "/?q=0"
-    for (i of [0,1,2]){
+    url_args = `/?q=${encodeURIComponent(query)}`
+    for (i of [0,1,2,3,4]){
         url_args += `&r${i+1}=${encodeURIComponent(results[i])}`
     }
     insertIFrame(url_args);
@@ -35,7 +36,7 @@ function processSearch(doc){
 
 function insertIFrame(url_args){
     var url = browser.runtime.getURL("ui/image_list.html");
-    // Add iFrame to page (will eventually contain the image results)
+    // Add iFrame to page (will contain image results)
     var elem = document.createElement("iframe");
     elem.setAttribute("style", "position:fixed; top:10px; right:10px; background-color:white; border: thin solid black; width: 35%; height: 200px; z-index:1000;")
     elem.setAttribute("src",url+url_args);
