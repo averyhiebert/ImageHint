@@ -14,5 +14,5 @@ it works decently a lot of the time.
 
 1. Highlight some text.
 2. Right-click to open context menu.
-3. Select the "ImageHint" button
+3. Select the "ImageHint" button.
 4. To dismiss the image hint popup, click anywhere on the popup.
