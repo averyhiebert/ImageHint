@@ -10,3 +10,9 @@ also the name of a major piece of media, similar to a common word in
 a more widely-spoken language, or difficult to represent pictorally), but
 it works decently a lot of the time. 
 
+# Usage
+
+1. Highlight some text.
+2. Right-click to open context menu.
+3. Select the "ImageHint" button
+4. To dismiss the image hint popup, click anywhere on the popup.

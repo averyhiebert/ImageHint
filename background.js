@@ -2,7 +2,7 @@ function main(){
     // Create the context menu button
     browser.contextMenus.create({
       id: "image-hint",
-      title: "Get Image Hint",
+      title: "ImageHint",
       contexts: ["selection"],
     });
 
