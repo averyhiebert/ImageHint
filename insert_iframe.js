@@ -38,7 +38,7 @@ function insertIFrame(url_args){
     var url = browser.runtime.getURL("ui/image_list.html");
     // Add iFrame to page (will contain image results)
     var elem = document.createElement("iframe");
-    elem.setAttribute("style", "position:fixed; top:10px; right:10px; background-color:white; border: thin solid black; width: 35%; height: 200px; z-index:1000;")
+    elem.setAttribute("style", "position:fixed; top:10px; right:10px; background-color:white; border: thin solid black; width: 35%; max-width:300px; height: 300px; z-index:1000;")
     elem.setAttribute("src",url+url_args);
     elem.setAttribute("id","inserted-imagehint-iframe")
 
