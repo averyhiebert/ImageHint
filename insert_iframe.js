@@ -35,7 +35,15 @@ function displayResults(query, doc){
 }
 
 function insertIFrame(url_args){
+    // TODO: Use data url instead of web-accessible resource, since this
+    //   avoids problems with the web page being able to fingerprint the
+    //   user based on extension ID, and/or problems with the page being
+    //   able to interact with the extension.
     var url = browser.runtime.getURL("ui/image_list.html");
+
+    // TODO: Remove current iframe if it exists, to prevent multiple elements
+    //  with the same id from existing.
+
     // Add iFrame to page (will contain image results)
     var elem = document.createElement("iframe");
     elem.setAttribute("style", "position:fixed; top:10px; right:10px; background-color:white; border: thin solid black; width: 35%; max-width:300px; height: 300px; z-index:1000;")
