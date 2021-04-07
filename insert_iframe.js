@@ -49,7 +49,7 @@ function insertIFrame(query,results){
 
     // Create title element
     var title = doc.createElement("h4");
-    title.innerHTML = query; //TODO escape html characters;
+    title.textContent = query;
     title.setAttribute("style","position:fixed;top:0px;left:0px;margin-top:0;padding-top:10px;padding-bottom:10px;background-color:#DDDDDD;width:100%;text-align:center");
 
     doc.body.appendChild(title)
