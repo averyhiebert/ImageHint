@@ -25,12 +25,7 @@ function extractImages(doc){
 }
 
 function displayResults(query, doc){
-    //console.log((new XMLSerializer()).serializeToString(doc))
     results = extractImages(doc)
-    url_args = `/?q=${encodeURIComponent(query)}`
-    for (i of [0,1,2,3,4]){
-        url_args += `&r${i+1}=${encodeURIComponent(results[i])}`
-    }
     insertIFrame(query,results);
 }
 
