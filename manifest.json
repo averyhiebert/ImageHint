@@ -8,5 +8,4 @@
   },
   "permissions": ["contextMenus","activeTab","https://images.search.yahoo.com/images"],
   "background":{ "scripts": ["background.js"] },
-  "web_accessible_resources":["ui/*"]
 }
