@@ -2,7 +2,9 @@
   "manifest_version": 2,
   "name": "ImageHint",
   "version": "0.0.1",
-  "description": "A tool for language learning: right-click to view image search results for an unknown word or phrase.",
+  "author":"Avery Hiebert",
+  "homepage_url":"https://github.com/averyhiebert/ImageHint",
+  "description": "Right-click to view image search results for an unknown word or phrase (intended primarily for language learning).",
   "icons": {
     "32": "icons/icon_32.png",
     "48": "icons/icon_48.png",
