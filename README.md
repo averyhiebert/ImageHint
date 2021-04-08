@@ -17,7 +17,10 @@ it's helpful a lot of the time.
 3. Select the "ImageHint" button.
 4. To dismiss the image hint results, click anywhere on the results list.
 
+### Tooltip:
 ![Screenshot showing the "View Image Hint" context menu button.](screenshots/tooltip.png)
+
+### Results:
 ![Screenshot showing image results for the selected text.](screenshots/popup.png)
 
 ## Disclaimers
