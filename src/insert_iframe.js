@@ -67,7 +67,7 @@ function insertIFrame(query,results){
 
     // Convert to text/data url
     var documentText = (new XMLSerializer()).serializeToString(doc)
-    var dataurl = "data:text/html," + encodeURIComponent(documentText);
+    var dataurl = "data:text/html;base64," + window.btoa(documentText);
 
     // Insert iframe into main page
     var elem = document.createElement("iframe");
