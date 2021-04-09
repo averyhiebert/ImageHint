@@ -5,7 +5,6 @@ function deleteIFrame(){
 function doSearch(query,callback){
     // Callback will be called on resulting image search results document.
     var url = `https://images.search.yahoo.com/search/images?p=${encodeURIComponent(query)}`
-    console.log(url);
     var xhttp = new XMLHttpRequest();
     xhttp.onload = function(){
         callback(query,this.responseXML);
@@ -44,8 +43,14 @@ function insertIFrame(query,results){
 
     // Create title element
     var title = doc.createElement("h4");
-    title.textContent = query;
+    //title.textContent = query; // If only it were that simple...
+                                 //  (see comment further down about unicode)
+    title.textContent = "";
     title.setAttribute("style","position:fixed;top:0px;left:0px;margin-top:0;padding-top:10px;padding-bottom:10px;background-color:#DDDDDD;width:100%;text-align:center");
+
+    // Experiment:
+    title.setAttribute("id","maintitle");
+    title.onload = function(){console.log("this is atest")}
 
     doc.body.appendChild(title)
     doc.body.appendChild(doc.createElement("br"));
@@ -64,6 +69,15 @@ function insertIFrame(query,results){
         im_list.append(doc.createElement("br"));
     }
     doc.body.appendChild(im_list);
+
+    // I'm very sorry about this, but this is legitimately the best way I
+    //   could figure out to handle unicode well.
+    //   Just setting the text = query during construction was causing
+    //   certain characters (umlauts etc.) to display wrong when using
+    //   URI-encoded non-base-64 string in the data url, but switching to
+    //   base 64 caused window.btoa to throw an error on Arabic characters.
+    //   TL;DR JavaScript unicode handling is bad.
+    doc.body.setAttribute("onload",`document.getElementById('maintitle').textContent = decodeURIComponent('${encodeURIComponent(query)}');`);
 
     // Convert to text/data url
     var documentText = (new XMLSerializer()).serializeToString(doc)
